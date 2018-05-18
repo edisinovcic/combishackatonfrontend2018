@@ -6,3 +6,8 @@
   width: 200px;
   box-shadow: 3px 0 6px rgba(0,0,0,.24);
 }
+
+.active-link {
+  background-color: #e3e3e3;
+  border-right: #f57c00 solid 5px;
+}
