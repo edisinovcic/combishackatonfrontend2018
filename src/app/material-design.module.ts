@@ -15,7 +15,8 @@ import {
   MatSnackBarModule,
   MatStepperModule,
   MatToolbarModule,
-  MatChipsModule, MatTooltipModule
+  MatChipsModule,
+  MatTooltipModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { LayoutModule } from '@angular/cdk/layout';

@@ -9,7 +9,8 @@
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#" routerLink="/" routerLinkActive="active-link">
-        <mat-icon color="accent">home</mat-icon>Home
+        <mat-icon color="accent">home</mat-icon>
+        Home
       </a>
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
@@ -25,9 +26,12 @@
         *ngIf="(isHandset | async)!.matches">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Try&#123;code&#125;catch</span>
+      <span>try&#123;code&#125;catch</span>
     </mat-toolbar>
 
-    <router-outlet></router-outlet>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
