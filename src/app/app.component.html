@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" [class.dark-theme]="isDarkTheme">
   <mat-sidenav
     #drawer
     class="sidenav"
@@ -14,6 +14,12 @@
       </a>
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
+      <mat-icon>brightness_low</mat-icon>
+      <mat-slide-toggle
+        (change)="changeTheme()"
+        [checked]="isDarkTheme">
+        <mat-icon>brightness_high</mat-icon>
+      </mat-slide-toggle>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

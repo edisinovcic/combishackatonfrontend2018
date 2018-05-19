@@ -10,19 +10,37 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
+.dark-theme {
+  $trycodecatch-app-dark-primary: mat-palette($mat-pink, 700);
+  $trycodecatch-app-dark-accent: mat-palette($mat-blue-grey);
+
+  $trycodecatch-app-dark-theme: mat-dark-theme($trycodecatch-app-dark-primary, $trycodecatch-app-dark-accent);
+
+  @include angular-material-theme($trycodecatch-app-dark-theme);
+}
+
+.light-theme {
+  $trycodecatch-app-light-primary: mat-palette($mat-pink, 700);
+  $trycodecatch-app-light-accent: mat-palette($mat-blue-grey);
+
+  $trycodecatch-app-light-theme: mat-light-theme($trycodecatch-app-light-primary, $trycodecatch-app-light-accent);
+
+  @include angular-material-theme($trycodecatch-app-light-theme);
+}
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://www.google.com/design/spec/style/color.html
-$ico-app-primary: mat-palette($mat-blue-gray, 700, 900, 300);
-$ico-app-accent:  mat-palette($mat-orange, 700, 900, 300);
+$trycodecatch-app-primary: mat-palette($mat-blue-gray, 700, 900, 300);
+$trycodecatch-app-accent:  mat-palette($mat-orange, 700, 900, 300);
 
 // The warn palette is optional (defaults to red).
-$ico-app-warn:    mat-palette($mat-red);
+$trycodecatch-app-warn:    mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$ico-app-theme: mat-light-theme($ico-app-primary, $ico-app-accent, $ico-app-warn);
+$trycodecatch-app-theme: mat-light-theme($trycodecatch-app-primary, $trycodecatch-app-accent, $trycodecatch-app-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($ico-app-theme);
+@include angular-material-theme($trycodecatch-app-theme);

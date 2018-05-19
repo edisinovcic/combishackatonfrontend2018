@@ -16,6 +16,8 @@ export class AppComponent implements OnInit, OnDestroy {
   isLoggedIn: boolean;
   loginSubscription: Subscription;
 
+  isDarkTheme = false;
+
   constructor(private breakpointObserver: BreakpointObserver, private authService: AuthenticationService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
@@ -41,5 +43,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   logout() {
     this.authService.logout();
+  }
+
+  changeTheme(): void {
+    this.isDarkTheme = !this.isDarkTheme;
   }
 }
