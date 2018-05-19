@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AlertService } from '../shared/alert.service';
 
 declare let require: any;
 declare let window: any;
@@ -13,7 +14,7 @@ export class EthereumService {
   private contract: any;
   private contractAddress: string;
 
-  constructor() {
+  constructor(private alertService: AlertService) {
     // if (typeof window.web3 !== 'undefined') {
     //   // Use Mist/MetaMask's provider
     //   this.web3 = new Web3(window.web3.currentProvider);
@@ -30,8 +31,9 @@ export class EthereumService {
     //
     // } else {
     //   console.warn(
-    //     'Please use a dapp browser like mist or MetaMask plugin for Chrome'
+    //     'Please use a dapp browser like mist or MetaMask plugin for Firefox and Chrome'
     //   );
+    //   this.alertService.danger('Please use a dapp browser like mist or MetaMask plugin for Firefox and Chrome');
     // }
   }
 

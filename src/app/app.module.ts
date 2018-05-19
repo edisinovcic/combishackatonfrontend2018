@@ -5,13 +5,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialDesignModule } from './material-design.module';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { AppConfig } from './shared/app-config.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { EthereumService } from './services/ethereum.service';
+import { AuthenticationService } from './auth/authentication.service';
+import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component';
+import { AlertService } from './shared/alert.service';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -20,7 +21,8 @@ export function initializeApp(appConfig: AppConfig) {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,8 @@ export function initializeApp(appConfig: AppConfig) {
     MaterialDesignModule
   ],
   providers: [
+    AuthenticationService,
+    AlertService,
     EthereumService,
     AppConfig,
     {
@@ -39,6 +43,9 @@ export function initializeApp(appConfig: AppConfig) {
       deps: [AppConfig],
       multi: true
     }
+  ],
+  entryComponents: [
+    LoginDialogComponent
   ],
   bootstrap: [AppComponent]
 })

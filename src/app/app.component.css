@@ -11,3 +11,7 @@
   background-color: #e3e3e3;
   border-right: #f57c00 solid 5px;
 }
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}

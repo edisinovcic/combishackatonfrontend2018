@@ -1,8 +1,8 @@
-.full-width {
-  width: 100%;
+.centered-text {
+  text-align: center;
 }
 
-.centered-item {
+.centered-content {
   display: flex;
   align-items: center;
   justify-content: center;
