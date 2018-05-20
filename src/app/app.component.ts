@@ -21,6 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private breakpointObserver: BreakpointObserver, private authService: AuthenticationService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
+    this.isDarkTheme = JSON.parse(localStorage.getItem('theme')).dark;
     this.isLoggedIn = this.authService.isLoggedIn();
 
     this.loginSubscription = this.authService.userLoggedIn.subscribe((loggedIn: boolean) => {
@@ -47,5 +48,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   changeTheme(): void {
     this.isDarkTheme = !this.isDarkTheme;
+    localStorage.setItem('theme', JSON.stringify({dark: this.isDarkTheme}));
   }
 }
