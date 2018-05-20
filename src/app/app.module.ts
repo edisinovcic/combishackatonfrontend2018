@@ -14,6 +14,8 @@ import { AuthenticationService } from './auth/authentication.service';
 import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component';
 import { AlertService } from './shared/alert.service';
 import { RegisterDialogComponent } from './auth/register-dialog/register-dialog.component';
+import { AgmCoreModule } from '@agm/core';
+import { MapComponent } from './map/map.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -24,7 +26,8 @@ export function initializeApp(appConfig: AppConfig) {
     AppComponent,
     HomeComponent,
     LoginDialogComponent,
-    RegisterDialogComponent
+    RegisterDialogComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,10 @@ export function initializeApp(appConfig: AppConfig) {
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    MaterialDesignModule
+    MaterialDesignModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'SIzaSyCG99G7GvLoyjzOitwhqjfYTHYofNIPgrM' // change API key cypher
+    })
   ],
   providers: [
     AuthenticationService,
