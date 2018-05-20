@@ -13,6 +13,7 @@ import { EthereumService } from './services/ethereum.service';
 import { AuthenticationService } from './auth/authentication.service';
 import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component';
 import { AlertService } from './shared/alert.service';
+import { RegisterDialogComponent } from './auth/register-dialog/register-dialog.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -22,7 +23,8 @@ export function initializeApp(appConfig: AppConfig) {
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    RegisterDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ export function initializeApp(appConfig: AppConfig) {
     }
   ],
   entryComponents: [
-    LoginDialogComponent
+    LoginDialogComponent,
+    RegisterDialogComponent
   ],
   bootstrap: [AppComponent]
 })

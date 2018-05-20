@@ -4,6 +4,7 @@ import { Observable, Subscription } from 'rxjs';
 import { AuthenticationService } from './auth/authentication.service';
 import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component';
 import { MatDialog } from '@angular/material';
+import { RegisterDialogComponent } from './auth/register-dialog/register-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -35,8 +36,15 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  openDialog(): void {
+  openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
+      width: '400px',
+      data: { }
+    });
+  }
+
+  openRegisterDialog(): void {
+    const dialogRef = this.dialog.open(RegisterDialogComponent, {
       width: '400px',
       data: { }
     });

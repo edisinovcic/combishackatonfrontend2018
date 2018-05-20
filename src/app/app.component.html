@@ -38,7 +38,8 @@
       </button>
       <span>try&#123;code&#125;catch</span>
       <span class="fill-remaining-space"></span>
-      <button *ngIf="!isLoggedIn" mat-button (click)="openDialog()">Sign in</button>
+      <button *ngIf="!isLoggedIn" mat-button (click)="openLoginDialog()">Sign in</button>
+      <button *ngIf="!isLoggedIn" mat-button (click)="openRegisterDialog()">Register</button>
       <button *ngIf="isLoggedIn" mat-raised-button color="accent" (click)="logout()">Sign out</button>
 
     </mat-toolbar>
