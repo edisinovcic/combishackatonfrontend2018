@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { NgForm } from '@angular/forms';
-import { AuthenticationService } from '../authentication.service';
+import { User } from '../../shared/user.model';
 
 @Component({
   selector: 'app-register-dialog',
@@ -23,7 +23,7 @@ export class RegisterDialogComponent implements OnInit {
     const email: string = formControls.email;
     const password: string = formControls.password;
 
-    console.log(`Email: ${email} Password: ${password}`);
+    console.log(<User>formControls);
     this.dialogRef.close();
   }
 

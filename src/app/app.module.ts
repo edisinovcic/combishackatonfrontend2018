@@ -16,6 +16,7 @@ import { AlertService } from './shared/alert.service';
 import { RegisterDialogComponent } from './auth/register-dialog/register-dialog.component';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './map/map.component';
+import { AuthGuard } from './auth/auth.guard';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -44,6 +45,7 @@ export function initializeApp(appConfig: AppConfig) {
     AuthenticationService,
     AlertService,
     EthereumService,
+    AuthGuard,
     AppConfig,
     {
       provide: APP_INITIALIZER,

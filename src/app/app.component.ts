@@ -39,6 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
   openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
       width: '400px',
+      disableClose: true,
       data: { }
     });
   }

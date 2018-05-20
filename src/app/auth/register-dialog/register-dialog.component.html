@@ -4,6 +4,54 @@
   <form #registerForm="ngForm" (submit)="onSubmit(registerForm)">
     <mat-dialog-content>
       <mat-form-field class="full-width" appearance="outline">
+        <mat-label>First name</mat-label>
+        <input
+          matInput
+          name="firstName"
+          placeholder="First name"
+          ngModel
+          required>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Last name</mat-label>
+        <input
+          matInput
+          name="lastName"
+          placeholder="Last name"
+          ngModel
+          required>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Address</mat-label>
+        <input
+          matInput
+          name="address"
+          placeholder="Address"
+          ngModel
+          required>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-select
+          placeholder="Gender"
+          ngModel
+          name="gender"
+          required>
+          <mat-option value="M">Male</mat-option>
+          <mat-option value="F">Female</mat-option>
+          <mat-option value="X">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-select
+          placeholder="Authority"
+          ngModel
+          name="authorityGroup"
+          required>
+          <mat-option value="UserType1">UserType1</mat-option>
+          <mat-option value="UserType2">UserType2</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline">
         <mat-label>Email</mat-label>
         <input
           matInput
@@ -11,11 +59,11 @@
           placeholder="Email"
           ngModel
           required>
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Password</mat-label>
         <input
+          #password
           matInput
           name="password"
           placeholder="Password"
@@ -24,10 +72,26 @@
           required>
         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
       </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Confirm password</mat-label>
+        <input
+          #confirmPassword
+          matInput
+          placeholder="Password"
+          [type]="hide ? 'password' : 'text'"
+          required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </mat-form-field>
     </mat-dialog-content>
     <mat-dialog-actions class="centered-content">
       <button mat-button [mat-dialog-close]="false">Cancel</button>
-      <button mat-raised-button type="submit" color="accent" [disabled]="!registerForm.form.valid">Login</button>
+      <button
+        mat-raised-button
+        type="submit"
+        color="accent"
+        [disabled]="!registerForm.form.valid || password.value !== confirmPassword.value">
+        Register
+      </button>
     </mat-dialog-actions>
   </form>
 </section>
