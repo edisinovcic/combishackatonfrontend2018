@@ -14,12 +14,16 @@
       </a>
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
-      <mat-icon>brightness_low</mat-icon>
-      <mat-slide-toggle
-        (change)="changeTheme()"
-        [checked]="isDarkTheme">
+      <mat-divider></mat-divider>
+      <span class="mat-subheader">Choose theme</span>
+      <div class="theme-chooser">
+        <mat-icon>brightness_low</mat-icon>
+          <mat-slide-toggle
+            (change)="changeTheme()"
+            [checked]="isDarkTheme">
+          </mat-slide-toggle>
         <mat-icon>brightness_high</mat-icon>
-      </mat-slide-toggle>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
