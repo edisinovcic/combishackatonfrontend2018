@@ -16,7 +16,7 @@ import {
   MatStepperModule,
   MatToolbarModule,
   MatChipsModule,
-  MatTooltipModule, MatSlideToggleModule, MatMenuModule, MatRadioModule, MatSelectModule
+  MatTooltipModule, MatSlideToggleModule, MatMenuModule, MatRadioModule, MatSelectModule, MatTableModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -45,7 +45,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatSlideToggleModule,
     MatMenuModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
   ],
   exports: [
     MatButtonModule,
@@ -70,7 +71,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatSlideToggleModule,
     MatMenuModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
   ],
 })
 export class MaterialDesignModule { }
