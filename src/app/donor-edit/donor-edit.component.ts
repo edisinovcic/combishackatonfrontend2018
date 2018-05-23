@@ -12,6 +12,8 @@ export class DonorEditComponent implements OnInit {
   id: string;
   editMode: boolean;
 
+  startDate = new Date(1990, 0, 1);
+
   constructor(private route: ActivatedRoute,
               private router: Router,
               private alertService: AlertService,
