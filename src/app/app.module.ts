@@ -20,6 +20,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { UserService } from './services/user.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DonorsListComponent } from './donors-list/donors-list.component';
+import { BloodDonationsComponent } from './blood-donations/blood-donations.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -33,7 +34,8 @@ export function initializeApp(appConfig: AppConfig) {
     RegisterDialogComponent,
     MapComponent,
     DashboardComponent,
-    DonorsListComponent
+    DonorsListComponent,
+    BloodDonationsComponent
   ],
   imports: [
     BrowserModule,

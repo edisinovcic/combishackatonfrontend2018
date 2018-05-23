@@ -4,11 +4,13 @@ import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DonorsListComponent } from './donors-list/donors-list.component';
+import { BloodDonationsComponent } from './blood-donations/blood-donations.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'donors', component: DonorsListComponent },
+  { path: 'blood-donations', component: BloodDonationsComponent },
   { path: 'map', component: MapComponent },
   { path: '**', redirectTo: '' }
 ];
