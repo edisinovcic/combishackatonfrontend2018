@@ -8,11 +8,14 @@
     [opened]="!(isHandset | async)!.matches && isLoggedIn">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#" routerLink="/" routerLinkActive="active-link">
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
         <mat-icon color="accent">home</mat-icon>
         Dashboard
       </a>
-      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item routerLink="/donors"routerLinkActive="active-link">
+        <mat-icon color="accent">healing</mat-icon>
+        Donors
+      </a>
       <a mat-list-item href="#">Link 3</a>
       <mat-divider></mat-divider>
       <span class="mat-subheader">Choose theme</span>

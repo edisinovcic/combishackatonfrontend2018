@@ -19,6 +19,7 @@ import { MapComponent } from './map/map.component';
 import { AuthGuard } from './auth/auth.guard';
 import { UserService } from './services/user.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DonorsListComponent } from './donors-list/donors-list.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -31,7 +32,8 @@ export function initializeApp(appConfig: AppConfig) {
     LoginDialogComponent,
     RegisterDialogComponent,
     MapComponent,
-    DashboardComponent
+    DashboardComponent,
+    DonorsListComponent
   ],
   imports: [
     BrowserModule,

@@ -30,7 +30,7 @@
             </mat-form-field>
           </mat-dialog-content>
           <mat-dialog-actions class="centered-content">
-            <button mat-button (click)="loginForm.reset()">Reset</button>
+            <button type="button" mat-button (click)="loginForm.form.reset()">Reset</button>
             <button mat-raised-button type="submit" color="accent" [disabled]="!loginForm.form.valid">Login</button>
           </mat-dialog-actions>
         </form>
