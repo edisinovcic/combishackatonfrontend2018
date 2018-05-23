@@ -19,4 +19,7 @@ export class UserService {
   createUser(user: User): Observable<any> {
     return this.http.post('/api/v1/users', user, UserService.getHeaders());
   }
+
+  getUser(id: string): void {
+  }
 }
