@@ -12,7 +12,7 @@
               matInput
               name="firstName"
               placeholder="First name"
-              ngModel
+              [(ngModel)] = "firstName"
               required>
           </mat-form-field>
           <mat-form-field class="full-width" appearance="outline">
@@ -21,7 +21,7 @@
               matInput
               name="lastName"
               placeholder="Last name"
-              ngModel
+              [(ngModel)] = "lastName"
               required>
           </mat-form-field>
           <mat-form-field class="full-width" appearance="outline">
@@ -30,7 +30,7 @@
               matInput
               name="email"
               placeholder="Email"
-              ngModel
+              [(ngModel)] = "email"
               required>
           </mat-form-field>
           <mat-form-field class="full-width" appearance="outline">
@@ -39,11 +39,20 @@
               matInput
               name="address"
               placeholder="Address"
-              ngModel
+              [(ngModel)] = "address"
               required>
           </mat-form-field>
           <mat-form-field class="full-width" appearance="outline">
-            <input matInput ngModel name="birthDate" [matDatepicker]="picker" placeholder="Birth date">
+            <mat-label>Phone number</mat-label>
+            <input
+              matInput
+              name="phoneNumber"
+              placeholder="Phone number"
+              [(ngModel)] = "phoneNumber"
+              required>
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+            <input matInput [(ngModel)]="yearOfBirth" name="birthDate" [matDatepicker]="picker" placeholder="Birth date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker startView="year" [startAt]="startDate" required></mat-datepicker>
           </mat-form-field>
@@ -51,18 +60,17 @@
           <mat-form-field class="full-width" appearance="outline">
             <mat-select
               placeholder="Sex"
-              ngModel
+              [(ngModel)]="gender"
               name="gender"
               required>
               <mat-option value="M">Male</mat-option>
               <mat-option value="F">Female</mat-option>
-              <mat-option value="X">Other</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field class="full-width" appearance="outline">
             <mat-select
               placeholder="Blood type"
-              ngModel
+              [(ngModel)]="bloodType"
               name="bloodType"
               required>
               <mat-option value="0-">0-</mat-option>
@@ -83,7 +91,7 @@
           <!--name="password"-->
           <!--placeholder="Password"-->
           <!--[type]="hide ? 'password' : 'text'"-->
-          <!--ngModel-->
+          <!--[(ngModel)]-->
           <!--required>-->
           <!--<mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>-->
           <!--</mat-form-field>-->

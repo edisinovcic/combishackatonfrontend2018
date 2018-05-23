@@ -16,10 +16,24 @@ export class UserService {
     };
   }
 
+  private static getHeadersWithAuth() {
+    const headers: HttpHeaders = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', sessionStorage.getItem('jwtToken'));
+
+    return {
+      headers: headers
+    };
+  }
+
   createUser(user: User): Observable<any> {
     return this.http.post('/api/v1/users', user, UserService.getHeaders());
   }
 
   getUser(id: string): void {
+  }
+
+  getAllUsers() {
+    return this.http.get('/api/v1/users', UserService.getHeadersWithAuth());
   }
 }
