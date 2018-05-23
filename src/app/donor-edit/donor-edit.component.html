@@ -111,7 +111,8 @@
             color="accent"
             [disabled]="!addDonorForm.form.valid">
             <!--[disabled]="!addDonorForm.form.valid || password.value !== confirmPassword.value">-->
-            Register donor
+            <span *ngIf="!editMode">Register donor</span>
+            <span *ngIf="editMode">Update donor data</span>
           </button>
           <button type="button" mat-button (click)="addDonorForm.form.reset()">Reset</button>
         </form>

@@ -40,20 +40,29 @@ export class DonorEditComponent implements OnInit {
         (params: Params) => {
           this.id = params['id'];
           this.editMode = params['id'] != null;
+          console.log(this.editMode);
 
           if (this.editMode) {
-            // this.userService.getUser(this.id)
-            //   .subscribe(
-            //     user => {
-            //       this.user = user;
-            //       this.populateModel();
-            //     },
-            //     error => {
-            //       if (error.status !== 200 || error.status !== 201) {
-            //         this.alertService.danger('Cannot fetch user data');
-            //       }
-            //     }
-            //   );
+            this.userService.getUser(this.id)
+              .subscribe(
+                user => {
+                  this.donor = <User>(user['data']);
+                  this.firstName = this.donor.firstName;
+                  this.lastName = this.donor.lastName;
+                  this.email = this.donor.email;
+                  this.address = this.donor.address;
+                  this.authorityGroup = this.donor.authorityGroup;
+                  this.bloodType = this.donor.bloodType;
+                  this.gender = this.donor.gender;
+                  this.yearOfBirth = new Date(this.donor.yearOfBirth);
+                  this.phoneNumber = this.donor.phoneNumber;
+                },
+                error => {
+                  if (error.status !== 200 || error.status !== 201) {
+                    this.alertService.danger('Cannot fetch user data');
+                  }
+                }
+              );
           }
         }
       );
@@ -64,24 +73,42 @@ export class DonorEditComponent implements OnInit {
     const formControls = registerForm.form.value;
     console.log(formControls);
 
-    this.donor = new User();
-    this.donor.firstName = this.firstName;
-    this.donor.lastName = this.lastName;
-    this.donor.email = this.email;
-    this.donor.address = this.address;
-    this.donor.authorityGroup = 'CUSTOMER';
-    this.donor.bloodType = this.bloodType;
-    this.donor.gender = this.gender;
-    this.donor.yearOfBirth = this.yearOfBirth.getFullYear().toString();
-    this.donor.password = '123456';
-    this.donor.phoneNumber = this.phoneNumber;
+    if (!this.editMode) {
+      this.donor = new User();
+      this.donor.firstName = this.firstName;
+      this.donor.lastName = this.lastName;
+      this.donor.email = this.email;
+      this.donor.address = this.address;
+      this.donor.authorityGroup = 'CUSTOMER';
+      this.donor.bloodType = this.bloodType;
+      this.donor.gender = this.gender;
+      this.donor.yearOfBirth = this.yearOfBirth.getFullYear().toString();
+      this.donor.password = '123456';
+      this.donor.phoneNumber = this.phoneNumber;
 
-    this.userService.createUser(this.donor)
-      .subscribe(response => {
-        console.log(response);
-        this.alertService.success('User registered. Please login now');
-        this.router.navigate(['/donors']);
-      });
+      this.userService.createUser(this.donor)
+        .subscribe(response => {
+          console.log(response);
+          this.alertService.success('User registered. Please login now');
+          this.router.navigate(['/donors']);
+        });
+    } else {
+      this.donor.firstName = this.firstName;
+      this.donor.lastName = this.lastName;
+      this.donor.email = this.email;
+      this.donor.address = this.address;
+      this.donor.bloodType = this.bloodType;
+      this.donor.gender = this.gender;
+      this.donor.yearOfBirth = this.yearOfBirth.getFullYear().toString();
+      this.donor.phoneNumber = this.phoneNumber;
+
+      this.userService.updateUser(this.donor)
+        .subscribe(response => {
+          console.log(response);
+          this.alertService.success('User updated');
+          this.router.navigate(['/donors']);
+        });
+    }
   }
 
 }

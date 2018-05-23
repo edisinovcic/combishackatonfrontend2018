@@ -31,4 +31,8 @@ export class DonorsListComponent implements OnInit {
     this.router.navigate(['/donors/new']);
   }
 
+  onViewDonor(id: string) {
+    this.router.navigate([`/donors/${id}`]);
+  }
+
 }

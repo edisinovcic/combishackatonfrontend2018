@@ -30,7 +30,12 @@ export class UserService {
     return this.http.post('/api/v1/users', user, UserService.getHeaders());
   }
 
-  getUser(id: string): void {
+  updateUser(user: User): Observable<any> {
+    return this.http.put('/api/v1/users', user, UserService.getHeadersWithAuth());
+  }
+
+  getUser(id: string) {
+    return this.http.get(`/api/v1/users/${id}`, UserService.getHeadersWithAuth());
   }
 
   getAllUsers() {

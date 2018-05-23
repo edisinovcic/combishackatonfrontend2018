@@ -42,7 +42,9 @@
             matTooltip="View donor info"
             color="primary"
             [matTooltipPosition]="'right'"
-            mat-mini-fab color="accent"><mat-icon>zoom_in</mat-icon></button>
+            mat-mini-fab
+            color="accent"
+            (click)="onViewDonor(element.id)"><mat-icon>zoom_in</mat-icon></button>
         </td>
       </ng-container>
 
