@@ -1,11 +1,12 @@
 <section class="mat-typography">
-  <mat-card>
+  <mat-card style="height: 93vh;">
     <h1 class="mat-headline">Donor list</h1>
     <mat-divider></mat-divider>
     <div style="margin-top: 30px; margin-bottom: 20px;">
       <button
         matTooltip="Add new donor"
         [matTooltipPosition]="'right'"
+        (click)="onAddDonor()"
         mat-fab color="accent"><mat-icon>group_add</mat-icon></button>
     </div>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-donors-list',
@@ -9,9 +10,13 @@ export class DonorsListComponent implements OnInit {
   displayedColumns = ['position', 'name', 'weight', 'symbol', 'actions'];
   dataSource = ELEMENT_DATA;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onAddDonor() {
+    this.router.navigate(['/donors/new']);
   }
 
 }

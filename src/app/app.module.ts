@@ -21,6 +21,7 @@ import { UserService } from './services/user.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DonorsListComponent } from './donors-list/donors-list.component';
 import { BloodDonationsComponent } from './blood-donations/blood-donations.component';
+import { DonorEditComponent } from './donor-edit/donor-edit.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -35,7 +36,8 @@ export function initializeApp(appConfig: AppConfig) {
     MapComponent,
     DashboardComponent,
     DonorsListComponent,
-    BloodDonationsComponent
+    BloodDonationsComponent,
+    DonorEditComponent
   ],
   imports: [
     BrowserModule,
