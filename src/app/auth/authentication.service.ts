@@ -8,6 +8,10 @@ import { AlertService } from '../shared/alert.service';
 export class AuthenticationService {
   userLoggedIn: Subject<boolean> = new Subject<boolean>();
 
+  static token(response: any) {
+    return response.data.token.accessToken;
+  }
+
   constructor(private http: HttpClient, private router: Router, private alertService: AlertService) {}
 
   static getHeaders(): HttpHeaders {
@@ -21,10 +25,9 @@ export class AuthenticationService {
       password: password
     };
 
-    this.http.post('/api/login', requestBody)
+    this.http.post('/api/v1/auth/token', requestBody)
       .subscribe((response: any) => {
-        console.log(`JWT token: ${response.jwtToken}`);
-        sessionStorage.setItem('jwtToken', response.jwtToken);
+        sessionStorage.setItem('jwtToken', AuthenticationService.token(response));
         this.userLoggedIn.next(true);
         this.alertService.success('Successfully signed in');
         this.router.navigate(['/']);
@@ -35,16 +38,10 @@ export class AuthenticationService {
   }
 
   logout(): void {
-    this.http.get('/api/logout', {headers: AuthenticationService.getHeaders()})
-      .subscribe(() => {
-        sessionStorage.removeItem('jwtToken');
-        this.userLoggedIn.next(false);
-        this.alertService.success('Successfully signed out');
-        this.router.navigate(['/']);
-      }, error => {
-        console.log(error);
-        this.alertService.danger(error);
-      });
+    sessionStorage.removeItem('jwtToken');
+    this.userLoggedIn.next(false);
+    this.alertService.success('Successfully signed out');
+    this.router.navigate(['/']);
   }
 
   clearData() {

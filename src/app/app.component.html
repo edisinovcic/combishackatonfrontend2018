@@ -46,13 +46,7 @@
           mat-menu-item>
           Login
         </button>
-        <button
-          *ngIf="!isLoggedIn"
-          (click)="openRegisterDialog()"
-          mat-menu-item>
-          Register
-        </button>
-        <button *ngIf="isLoggedIn" mat-raised-button color="accent" (click)="logout()">Sign out</button>
+        <button *ngIf="isLoggedIn" mat-menu-item (click)="logout()">Log out</button>
       </mat-menu>
 
       <button mat-icon-button [matMenuTriggerFor]="appMenu">
