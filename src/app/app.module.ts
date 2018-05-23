@@ -18,6 +18,7 @@ import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './map/map.component';
 import { AuthGuard } from './auth/auth.guard';
 import { UserService } from './services/user.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -29,7 +30,8 @@ export function initializeApp(appConfig: AppConfig) {
     HomeComponent,
     LoginDialogComponent,
     RegisterDialogComponent,
-    MapComponent
+    MapComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

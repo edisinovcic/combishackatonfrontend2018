@@ -30,7 +30,7 @@ export class AuthenticationService {
         sessionStorage.setItem('jwtToken', AuthenticationService.token(response));
         this.userLoggedIn.next(true);
         this.alertService.success('Successfully signed in');
-        this.router.navigate(['/']);
+        this.router.navigate(['/dashboard']);
       }, error => {
         console.log(error);
         this.alertService.danger(error.message);

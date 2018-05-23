@@ -8,6 +8,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  hide = true;
 
   constructor(private authService: AuthenticationService) { }
 
