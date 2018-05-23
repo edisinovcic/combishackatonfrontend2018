@@ -2,6 +2,9 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { User } from '../../shared/user.model';
+import { UserService } from '../../services/user.service';
+import { AuthResponse } from '../../services/auth-response.model';
+import { AlertService } from '../../shared/alert.service';
 
 @Component({
   selector: 'app-register-dialog',
@@ -11,7 +14,9 @@ import { User } from '../../shared/user.model';
 export class RegisterDialogComponent implements OnInit {
   hide = true;
 
-  constructor(public dialogRef: MatDialogRef<RegisterDialogComponent>,
+  constructor(private userService: UserService,
+              private alertService: AlertService,
+              public dialogRef: MatDialogRef<RegisterDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
@@ -20,10 +25,14 @@ export class RegisterDialogComponent implements OnInit {
   onSubmit(registerForm: NgForm) {
     const formControls = registerForm.form.value;
 
-    const email: string = formControls.email;
-    const password: string = formControls.password;
+    const userData: User = <User>formControls;
+    console.log(userData);
+    this.userService.createUser(userData)
+      .subscribe(response => {
+        console.log(response);
+        this.alertService.success('User registered. Please login now');
+      });
 
-    console.log(<User>formControls);
     this.dialogRef.close();
   }
 
