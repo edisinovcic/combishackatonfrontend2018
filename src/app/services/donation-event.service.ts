@@ -28,4 +28,8 @@ export class DonationEventService {
   createDonationEvent(donationEvent: DonationEvent) {
     return this.http.post('/api/v1/donation-events', donationEvent, DonationEventService.getHeadersWithAuth());
   }
+
+  getAllDonationEvents() {
+    return this.http.get('/api/v1/donation-events', DonationEventService.getHeadersWithAuth());
+  }
 }
