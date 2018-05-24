@@ -16,7 +16,15 @@ import {
   MatStepperModule,
   MatToolbarModule,
   MatChipsModule,
-  MatTooltipModule, MatSlideToggleModule, MatMenuModule, MatRadioModule, MatSelectModule, MatTableModule, MatTabsModule, MatCheckboxModule
+  MatTooltipModule,
+  MatSlideToggleModule,
+  MatMenuModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatTableModule,
+  MatTabsModule,
+  MatCheckboxModule,
+  MatProgressBarModule, MatProgressSpinnerModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -48,7 +56,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatSelectModule,
     MatTableModule,
     MatTabsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatButtonModule,
@@ -76,7 +86,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatSelectModule,
     MatTableModule,
     MatTabsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
   ],
 })
 export class MaterialDesignModule { }

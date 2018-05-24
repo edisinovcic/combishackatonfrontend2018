@@ -27,15 +27,50 @@
       </div>
       <div class="col-md-2">
         <mat-form-field class="full-width" appearance="outline">
-          <mat-select placeholder="Month">
-            <mat-option></mat-option>
-            <mat-option value="last">Last month</mat-option>
+          <mat-select [(ngModel)]="filterMonth" placeholder="Month">
             <mat-option value="this">This month</mat-option>
+            <mat-option value="last">Last month</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="col-md-2">
-        <button mat-raised-button color="accent" style="height: 55px" class="full-width">Search</button>
+        <button
+          mat-raised-button
+          color="accent"
+          style="height: 55px"
+          class="full-width"
+          (click)="filter()">
+          Show
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h3><strong></strong>A- (83 / 105)</h3>
+        <mat-progress-bar class="hero" style="height: 15px; background-color: silver !important;" mode="determinate" value="40"></mat-progress-bar>
+        <br />
+        <h3>A+ (83 / 110)</h3>
+        <mat-progress-bar style="height: 15px;" mode="determinate" value="50"></mat-progress-bar>
+        <br />
+        <h3>B- (83 / 110)</h3>
+        <mat-progress-bar style="height: 15px;"  mode="determinate" value="20"></mat-progress-bar>
+        <br />
+        <h3>B+ (83 / 110)</h3>
+        <mat-progress-bar style="height: 15px;"  mode="determinate" value="10"></mat-progress-bar>
+      </div>
+
+      <div class="col-md-6">
+        <h3>AB- (83 / 110)</h3>
+        <mat-progress-bar style="height: 15px;"  mode="determinate" value="100"></mat-progress-bar>
+        <br />
+        <h3>AB+ (83 / 110)</h3>
+        <mat-progress-bar style="height: 15px;"  mode="determinate" value="80"></mat-progress-bar>
+        <br />
+        <h3>0- (83 / 110)</h3>
+        <mat-progress-bar style="height: 15px;"  mode="determinate" value="50"></mat-progress-bar>
+        <br />
+        <h3>0+ (83 / 110)</h3>
+        <mat-progress-bar style="height: 15px;"  mode="determinate" value="60"></mat-progress-bar>
       </div>
     </div>
   </mat-card>
