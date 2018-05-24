@@ -48,4 +48,8 @@ export class DonationEventService {
   createDonationForUser(email: string, description: string) {
     return this.http.post('/api/v1/user-donation', {email: email, description: description}, DonationEventService.getHeadersWithAuth());
   }
+
+  getInvitesForEvent(eventId: string) {
+    return this.http.get('/api/v1/invites/event/' + eventId, DonationEventService.getHeadersWithAuth());
+  }
 }

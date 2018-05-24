@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { User } from '../shared/user.model';
 import { AlertService } from '../shared/alert.service';
 import { DonationEventService } from '../services/donation-event.service';
 import { DonationEvent } from '../shared/donation-event.model';
@@ -12,6 +11,8 @@ import { DonationEvent } from '../shared/donation-event.model';
 })
 export class DonationEventViewComponent implements OnInit {
   donationEvent: DonationEvent;
+
+  invites: any[] = [];
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -35,12 +36,22 @@ export class DonationEventViewComponent implements OnInit {
                   }
                 }
               );
+
+            this.donationEventService.getInvitesForEvent(id)
+              .subscribe(response => {
+                console.log(response);
+                this.invites = response['data'];
+              });
         }
       );
   }
 
   addDonator(email: string) {
-    this.alertService.success(`Donator ${email} added`);
+    this.donationEventService.createDonationForUser(email, 'Donation')
+      .subscribe(response => {
+        console.log(response);
+        this.alertService.success('Add donation to: ' + email);
+      });
   }
 
 }

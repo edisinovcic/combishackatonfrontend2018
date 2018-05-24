@@ -9,7 +9,7 @@ import { DonationEvent } from '../shared/donation-event.model';
   styleUrls: ['./blood-donations.component.css']
 })
 export class BloodDonationsComponent implements OnInit {
-  displayedColumns = ['address', 'description', 'actions'];
+  displayedColumns = ['address', 'actions'];
   dataSource;
 
   constructor(private router: Router, private donationEventService: DonationEventService) { }

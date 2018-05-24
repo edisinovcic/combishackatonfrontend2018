@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DonationEvent } from '../shared/donation-event.model';
 import { DonationEventService } from '../services/donation-event.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-donation-event-edit',
@@ -13,7 +14,7 @@ export class DonationEventEditComponent implements OnInit {
   lat;
   lng;
 
-  constructor(private donationEventService: DonationEventService) { }
+  constructor(private donationEventService: DonationEventService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -35,6 +36,7 @@ export class DonationEventEditComponent implements OnInit {
     this.donationEventService.createDonationEvent(event)
       .subscribe(response => {
         console.log(response);
+        this.router.navigate(['/blood-donations']);
       });
   }
 

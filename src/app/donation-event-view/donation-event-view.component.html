@@ -16,6 +16,8 @@
           <input #donation matInput placeholder="Enter donator email address">
         </mat-form-field>
         <button mat-raised-button (click)="addDonator(donation.value); donation.value = '';">Add donator</button>
+
+        <p style="margin-top: 20px;"><strong>Number of invites sent:</strong> {{ invites?.length }}</p>
       </div>
     </div>
   </mat-card>
