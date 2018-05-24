@@ -39,4 +39,8 @@ export class DonationEventViewComponent implements OnInit {
       );
   }
 
+  addDonator(email: string) {
+    this.alertService.success(`Donator ${email} added`);
+  }
+
 }

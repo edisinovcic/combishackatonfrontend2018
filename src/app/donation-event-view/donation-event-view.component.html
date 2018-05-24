@@ -10,6 +10,13 @@
           <agm-marker [latitude]="donationEvent?.latitude" [longitude]="donationEvent?.longitude"></agm-marker>
         </agm-map>
       </div>
+      <div class="col-md-6">
+        <h2 class="mat-title">Add donator</h2>
+        <mat-form-field class="full-width">
+          <input #donation matInput placeholder="Enter donator email address">
+        </mat-form-field>
+        <button mat-raised-button (click)="addDonator(donation.value); donation.value = '';">Add donator</button>
+      </div>
     </div>
   </mat-card>
 </section>
