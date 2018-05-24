@@ -34,6 +34,14 @@ export class UserService {
     return this.http.put('/api/v1/users', user, UserService.getHeadersWithAuth());
   }
 
+  createQuestionForUser(question: string) {
+    return this.http.post('/api/v1/questions', {description: question}, UserService.getHeadersWithAuth());
+  }
+
+  getAllQuestions() {
+    return this.http.get('/api/v1/questions', UserService.getHeadersWithAuth());
+  }
+
   getUser(id: string) {
     return this.http.get(`/api/v1/users/${id}`, UserService.getHeadersWithAuth());
   }

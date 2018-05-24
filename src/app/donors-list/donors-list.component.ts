@@ -16,6 +16,8 @@ export class DonorsListComponent implements OnInit {
 
   users: User[];
 
+  questions: any[];
+
   constructor(private router: Router,
               private userService: UserService) { }
 
@@ -25,6 +27,12 @@ export class DonorsListComponent implements OnInit {
         this.users = <User[]>response['data'];
         this.dataSource = <User[]>this.users;
       });
+
+    this.userService.getAllQuestions()
+      .subscribe(questions => {
+        console.log(questions);
+        this.questions = questions['data'];
+      });
   }
 
   onAddDonor() {
@@ -33,6 +41,13 @@ export class DonorsListComponent implements OnInit {
 
   onViewDonor(id: string) {
     this.router.navigate([`/donors/${id}`]);
+  }
+
+  createQuestion(question: string) {
+    this.userService.createQuestionForUser(question)
+      .subscribe(response => {
+        console.log(response);
+      });
   }
 
 }

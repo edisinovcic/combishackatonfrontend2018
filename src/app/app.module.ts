@@ -25,6 +25,7 @@ import { DonorEditComponent } from './donor-edit/donor-edit.component';
 import { DonationEventEditComponent } from './donation-event-edit/donation-event-edit.component';
 import { DonationEventService } from './services/donation-event.service';
 import { DonationEventViewComponent } from './donation-event-view/donation-event-view.component';
+import { QuestionsComponent } from './questions/questions.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -42,7 +43,8 @@ export function initializeApp(appConfig: AppConfig) {
     BloodDonationsComponent,
     DonorEditComponent,
     DonationEventEditComponent,
-    DonationEventViewComponent
+    DonationEventViewComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,
