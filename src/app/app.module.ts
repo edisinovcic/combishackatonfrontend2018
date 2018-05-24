@@ -22,6 +22,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DonorsListComponent } from './donors-list/donors-list.component';
 import { BloodDonationsComponent } from './blood-donations/blood-donations.component';
 import { DonorEditComponent } from './donor-edit/donor-edit.component';
+import { DonationEventEditComponent } from './donation-event-edit/donation-event-edit.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -37,7 +38,8 @@ export function initializeApp(appConfig: AppConfig) {
     DashboardComponent,
     DonorsListComponent,
     BloodDonationsComponent,
-    DonorEditComponent
+    DonorEditComponent,
+    DonationEventEditComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ export function initializeApp(appConfig: AppConfig) {
     AppRoutingModule,
     MaterialDesignModule,
     AgmCoreModule.forRoot({
-      apiKey: 'SIzaSyCG99G7GvLoyjzOitwhqjfYTHYofNIPgrM' // change API key cypher
+      apiKey: 'AIzaSyCG99G7GvLoyjzOitwhqjfYTHYofNIPgrM'
     })
   ],
   providers: [

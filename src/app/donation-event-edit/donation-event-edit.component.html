@@ -1,0 +1,33 @@
+<section class="mat-typography">
+  <mat-card style="height: 93vh;">
+    <h1 class="mat-headline">New donation event</h1>
+    <mat-divider></mat-divider>
+    <div class="row" style="margin-top: 40px;">
+      <div class="col-md-6">
+        <form #addDonationEventForm="ngForm" (submit)="onSubmit(addDonationEventForm)">
+          <mat-form-field class="full-width" appearance="outline">
+            <textarea matInput name="description" placeholder="Event description"></textarea>
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input
+              matInput
+              name="address"
+              placeholder="Address"
+              ngModel
+              required>
+          </mat-form-field>
+          <button
+            mat-raised-button
+            type="submit"
+            color="accent"
+            [disabled]="!addDonationEventForm.form.valid">
+            <!--[disabled]="!addDonorForm.form.valid || password.value !== confirmPassword.value">-->
+            <span>Create new donation event</span>
+          </button>
+          <button type="button" mat-button (click)="addDonationEventForm.form.reset()">Reset</button>
+        </form>
+      </div>
+    </div>
+  </mat-card>
+</section>

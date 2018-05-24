@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blood-donations',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BloodDonationsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  onAddNewDonationEvent() {
+    this.router.navigate(['/blood-donations/new']);
   }
 
 }

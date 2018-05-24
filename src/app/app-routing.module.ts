@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DonorsListComponent } from './donors-list/donors-list.component';
 import { BloodDonationsComponent } from './blood-donations/blood-donations.component';
 import { DonorEditComponent } from './donor-edit/donor-edit.component';
+import { DonationEventEditComponent } from './donation-event-edit/donation-event-edit.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
   { path: 'donors/new', component: DonorEditComponent },
   { path: 'donors/:id', component: DonorEditComponent },
   { path: 'blood-donations', component: BloodDonationsComponent },
+  { path: 'blood-donations/new', component: DonationEventEditComponent },
   { path: 'map', component: MapComponent },
   { path: '**', redirectTo: '' }
 ];
