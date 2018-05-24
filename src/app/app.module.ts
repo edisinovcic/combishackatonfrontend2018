@@ -26,6 +26,7 @@ import { DonationEventEditComponent } from './donation-event-edit/donation-event
 import { DonationEventService } from './services/donation-event.service';
 import { DonationEventViewComponent } from './donation-event-view/donation-event-view.component';
 import { QuestionsComponent } from './questions/questions.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -44,7 +45,8 @@ export function initializeApp(appConfig: AppConfig) {
     DonorEditComponent,
     DonationEventEditComponent,
     DonationEventViewComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,44 @@
+<mat-card>
+  <div class="row" style="margin-top: 100px;">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <section class="mat-typography">
+        <h1 style="font-size: 34px; text-align: center;" class="mat-headline">Send notifications to donors</h1>
+
+        <form #loginForm="ngForm" (submit)="onSubmit(loginForm); loginForm.form.reset()">
+          <mat-dialog-content>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Title</mat-label>
+              <input
+                matInput
+                name="title"
+                placeholder="Title"
+                ngModel
+                required>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Message</mat-label>
+              <textarea
+                matInput
+                name="message"
+                placeholder="Message"
+                ngModel
+                required></textarea>
+            </mat-form-field>
+          </mat-dialog-content>
+          <mat-dialog-actions class="centered-content">
+            <button
+              class="full-width"
+              mat-raised-button
+              type="submit"
+              color="accent"
+              [disabled]="!loginForm.form.valid">
+              Send
+            </button>
+          </mat-dialog-actions>
+        </form>
+      </section>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</mat-card>
