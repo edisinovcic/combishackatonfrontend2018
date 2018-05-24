@@ -61,7 +61,10 @@
       <button mat-raised-button (click)="createQuestion(question.value)">Ask</button>
 
       <mat-list>
-        <mat-list-item *ngFor="let q of questions"> {{ q }} </mat-list-item>
+        <div *ngFor="let q of questions">
+          <mat-divider></mat-divider>
+          <mat-list-item> {{ q.description }} </mat-list-item>
+        </div>
       </mat-list>
     </mat-card>
   </mat-tab>
