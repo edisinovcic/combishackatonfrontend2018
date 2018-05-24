@@ -5,6 +5,10 @@
   </select>
 </div>
 
+<section class="mat-typography">
+  <h1 class="mat-title">Add donation data</h1>
+</section>
+
 <div [hidden]="!hasCameras">
 
   <zxing-scanner #scanner class="test-class" start="true" [device]="selectedDevice" (scanSuccess)="handleQrCodeResult($event)"></zxing-scanner>

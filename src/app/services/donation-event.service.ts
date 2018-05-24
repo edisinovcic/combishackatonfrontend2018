@@ -44,4 +44,8 @@ export class DonationEventService {
   getBlockStockByGroup(group: string) {
     return this.http.get(`/api/v1/blood-stock/blood-group/${group}`, DonationEventService.getHeadersWithAuth());
   }
+
+  createDonationForUser(email: string, description: string) {
+    return this.http.post('/api/v1/user-donation', {email: email, description: description}, DonationEventService.getHeadersWithAuth());
+  }
 }

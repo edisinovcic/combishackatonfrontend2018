@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
+import { AlertService } from '../shared/alert.service';
+import { DonationEventService } from '../services/donation-event.service';
 
 @Component({
   selector: 'app-qrcode-reader',
@@ -17,7 +19,7 @@ export class QrcodeReaderComponent implements OnInit {
   availableDevices: MediaDeviceInfo[];
   selectedDevice: MediaDeviceInfo;
 
-  constructor() { }
+  constructor(private alertService: AlertService, private donationEventService: DonationEventService) { }
 
   ngOnInit() {
     this.scanner.camerasFound.subscribe((devices: MediaDeviceInfo[]) => {
@@ -48,6 +50,14 @@ export class QrcodeReaderComponent implements OnInit {
   handleQrCodeResult(resultString: string) {
     console.log('Result: ', resultString);
     this.qrResultString = resultString;
+    const cont = confirm('Continue?');
+    if (cont) {
+      this.donationEventService.createDonationForUser(this.qrResultString, 'Donation')
+        .subscribe(response => {
+          console.log(response);
+          this.alertService.success('Add donation to: ' + resultString);
+        });
+    }
   }
 
   onDeviceSelectChange(selectedValue: string) {
