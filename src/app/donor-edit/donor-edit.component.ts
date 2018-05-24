@@ -17,6 +17,7 @@ export class DonorEditComponent implements OnInit {
   startDate = new Date(1990, 0, 1);
 
   donor: User;
+  donations: any[] = [];
 
   firstName: string;
   lastName: string;
@@ -63,6 +64,10 @@ export class DonorEditComponent implements OnInit {
                   }
                 }
               );
+            this.userService.getUserDonations(this.id)
+              .subscribe(donations => {
+                this.donations = donations['data'];
+              });
           }
         }
       );

@@ -49,4 +49,8 @@ export class UserService {
   getAllUsers() {
     return this.http.get('/api/v1/users', UserService.getHeadersWithAuth());
   }
+
+  getUserDonations(id: string) {
+    return this.http.get(`/api/v1/user-donation/user/${id}`, UserService.getHeadersWithAuth());
+  }
 }
