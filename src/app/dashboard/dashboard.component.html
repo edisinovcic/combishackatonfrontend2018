@@ -3,4 +3,40 @@
     <h1 class="mat-headline">Dashboard</h1>
     <mat-divider></mat-divider>
   </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <h2 class="mat-title">Blood in stock</h2>
+    </mat-card-header>
+
+    <div class="row">
+      <div class="col-md-2">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-select placeholder="Blood Type">
+            <mat-option></mat-option>
+            <mat-option value="0-">0-</mat-option>
+            <mat-option value="0+">0+</mat-option>
+            <mat-option value="A-">A-</mat-option>
+            <mat-option value="A+">A+</mat-option>
+            <mat-option value="B-">B-</mat-option>
+            <mat-option value="B+">B+</mat-option>
+            <mat-option value="AB-">AB-</mat-option>
+            <mat-option value="AB+">AB+</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-select placeholder="Month">
+            <mat-option></mat-option>
+            <mat-option value="last">Last month</mat-option>
+            <mat-option value="this">This month</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <button mat-raised-button color="accent" style="height: 55px" class="full-width">Search</button>
+      </div>
+    </div>
+  </mat-card>
 </section>
