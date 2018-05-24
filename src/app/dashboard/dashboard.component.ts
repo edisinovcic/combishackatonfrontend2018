@@ -57,10 +57,36 @@ export class DashboardComponent implements OnInit {
           this.supplies = response['data'];
           this.processSupplies();
         });
+    } else if (this.filterMonth === 'last') {
+      const now = new Date();
+      const month = now.getMonth();
+      const year = now.getFullYear();
+      const start = new Date(year, month - 1, 1);
+      const end = new Date(year, month, 1);
+
+      const startDate = start.toISOString().split('T')[0];
+      const endDate = end.toISOString().split('T')[0];
+
+      const st = startDate.split('-');
+      const et = endDate.split('-');
+      this.donationEventService.getBloodStock(`${st[2]}-${st[1]}-${st[0]}`, `${et[2]}-${et[1]}-${et[0]}`)
+        .subscribe(response => {
+          this.supplies = response['data'];
+          this.processSupplies();
+        });
     }
   }
 
   processSupplies() {
+    this.am = 0;
+    this.ap = 0;
+    this.bm = 0;
+    this.bp = 0;
+    this.abm = 0;
+    this.abp = 0;
+    this.zm = 0;
+    this.zp = 0;
+
     this.supplies.forEach(s => {
       switch (s.bloodGroup) {
         case 'A-':
