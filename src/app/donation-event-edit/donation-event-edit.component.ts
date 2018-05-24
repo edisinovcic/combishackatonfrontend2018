@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DonationEventEditComponent implements OnInit {
 
+  lat;
+  lng;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onMapClick(event: MouseEvent) {
+    const coords = event['coords'];
+    this.lat = coords.lat;
+    this.lng = coords.lng;
   }
 
 }

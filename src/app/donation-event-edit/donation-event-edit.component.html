@@ -4,6 +4,7 @@
     <mat-divider></mat-divider>
     <div class="row" style="margin-top: 40px;">
       <div class="col-md-6">
+        <h2 class="mat-title">Set description and address</h2>
         <form #addDonationEventForm="ngForm" (submit)="onSubmit(addDonationEventForm)">
           <mat-form-field class="full-width" appearance="outline">
             <textarea matInput name="description" placeholder="Event description"></textarea>
@@ -17,16 +18,22 @@
               ngModel
               required>
           </mat-form-field>
+
           <button
             mat-raised-button
             type="submit"
             color="accent"
-            [disabled]="!addDonationEventForm.form.valid">
-            <!--[disabled]="!addDonorForm.form.valid || password.value !== confirmPassword.value">-->
+            [disabled]="!addDonationEventForm.form.valid || !lat || !lng">
             <span>Create new donation event</span>
           </button>
           <button type="button" mat-button (click)="addDonationEventForm.form.reset()">Reset</button>
         </form>
+      </div>
+      <div class="col-md-6">
+        <h2 class="mat-title">Set donation event location by clicking on map</h2>
+        <agm-map [latitude]="45.815399" [longitude]="15.966568" [zoom]="7" (mapClick)="onMapClick($event)">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
       </div>
     </div>
   </mat-card>
