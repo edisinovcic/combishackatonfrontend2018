@@ -12,21 +12,6 @@
     <div class="row">
       <div class="col-md-2">
         <mat-form-field class="full-width" appearance="outline">
-          <mat-select placeholder="Blood Type">
-            <mat-option></mat-option>
-            <mat-option value="0-">0-</mat-option>
-            <mat-option value="0+">0+</mat-option>
-            <mat-option value="A-">A-</mat-option>
-            <mat-option value="A+">A+</mat-option>
-            <mat-option value="B-">B-</mat-option>
-            <mat-option value="B+">B+</mat-option>
-            <mat-option value="AB-">AB-</mat-option>
-            <mat-option value="AB+">AB+</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="col-md-2">
-        <mat-form-field class="full-width" appearance="outline">
           <mat-select [(ngModel)]="filterMonth" placeholder="Month">
             <mat-option value="this">This month</mat-option>
             <mat-option value="last">Last month</mat-option>
@@ -46,31 +31,31 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <h3><strong></strong>A- (83 / 105)</h3>
-        <mat-progress-bar class="hero" style="height: 15px; background-color: silver !important;" mode="determinate" value="40"></mat-progress-bar>
+        <h3><strong></strong>A- ({{ am }} / 42)</h3>
+        <mat-progress-bar class="hero" style="height: 15px; background-color: silver !important;" mode="determinate" [value]="(am / amv) * 100"></mat-progress-bar>
         <br />
-        <h3>A+ (83 / 110)</h3>
-        <mat-progress-bar style="height: 15px;" mode="determinate" value="50"></mat-progress-bar>
+        <h3>A+ ({{ 91 }} / 110)</h3>
+        <mat-progress-bar style="height: 15px;" mode="determinate" [value]="(ap / apv) * 100"></mat-progress-bar>
         <br />
-        <h3>B- (83 / 110)</h3>
-        <mat-progress-bar style="height: 15px;"  mode="determinate" value="20"></mat-progress-bar>
+        <h3>B- ({{ bm }} / 35)</h3>
+        <mat-progress-bar style="height: 15px;"  mode="determinate" [value]="(bm / bmv) * 100"></mat-progress-bar>
         <br />
-        <h3>B+ (83 / 110)</h3>
-        <mat-progress-bar style="height: 15px;"  mode="determinate" value="10"></mat-progress-bar>
+        <h3>B+ ({{ bp }} / 21)</h3>
+        <mat-progress-bar style="height: 15px;"  mode="determinate" [value]="(bp / bpv) * 100"></mat-progress-bar>
       </div>
 
       <div class="col-md-6">
-        <h3>AB- (83 / 110)</h3>
-        <mat-progress-bar style="height: 15px;"  mode="determinate" value="100"></mat-progress-bar>
+        <h3>AB- ({{ abm }} / 7)</h3>
+        <mat-progress-bar style="height: 15px;"  mode="determinate" [value]="(abm / abmv) * 100"></mat-progress-bar>
         <br />
-        <h3>AB+ (83 / 110)</h3>
-        <mat-progress-bar style="height: 15px;"  mode="determinate" value="80"></mat-progress-bar>
+        <h3>AB+ ({{ abp }} / 14)</h3>
+        <mat-progress-bar style="height: 15px;"  mode="determinate" [value]="(abp / abpv) * 100"></mat-progress-bar>
         <br />
-        <h3>0- (83 / 110)</h3>
-        <mat-progress-bar style="height: 15px;"  mode="determinate" value="50"></mat-progress-bar>
+        <h3>0- ({{ zm }} / 35)</h3>
+        <mat-progress-bar style="height: 15px;"  mode="determinate" [value]="(zm / zmv) * 100"></mat-progress-bar>
         <br />
-        <h3>0+ (83 / 110)</h3>
-        <mat-progress-bar style="height: 15px;"  mode="determinate" value="60"></mat-progress-bar>
+        <h3>0+ ({{ zp }} / 105)</h3>
+        <mat-progress-bar style="height: 15px;"  mode="determinate" [value]="(zp / zpv) * 100"></mat-progress-bar>
       </div>
     </div>
   </mat-card>

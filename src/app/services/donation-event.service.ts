@@ -38,6 +38,10 @@ export class DonationEventService {
   }
 
   getBloodStock(start: string, end: string) {
-    return this.http.get(`/api/v1/blood-stock/between?start=${start}&end=${end}`, DonationEventService.getHeadersWithAuth());
+    return this.http.get(`/api/v1/blood-stock/between?s=${start}&e=${end}`, DonationEventService.getHeadersWithAuth());
+  }
+
+  getBlockStockByGroup(group: string) {
+    return this.http.get(`/api/v1/blood-stock/blood-group/${group}`, DonationEventService.getHeadersWithAuth());
   }
 }
