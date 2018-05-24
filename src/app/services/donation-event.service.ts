@@ -32,4 +32,8 @@ export class DonationEventService {
   getAllDonationEvents() {
     return this.http.get('/api/v1/donation-events', DonationEventService.getHeadersWithAuth());
   }
+
+  getDonationEvent(id: string) {
+    return this.http.get(`/api/v1/donation-events/${id}`, DonationEventService.getHeadersWithAuth());
+  }
 }

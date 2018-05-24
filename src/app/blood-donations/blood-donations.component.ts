@@ -26,7 +26,7 @@ export class BloodDonationsComponent implements OnInit {
   }
 
   onViewDonationEvent(id: string) {
-    this.router.navigate([`/donation-events/${id}`]);
+    this.router.navigate([`/blood-donations/${id}`]);
   }
 
 }

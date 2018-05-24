@@ -1,0 +1,15 @@
+<section class="mat-typography">
+  <mat-card style="height: 93vh;">
+    <h1 class="mat-headline">Donation event</h1>
+    <mat-divider></mat-divider>
+    <div class="row" style="margin-top: 40px;">
+      <div class="col-md-6">
+        <h2 class="mat-title">Description</h2>
+        <p class="mat-subheading-2">{{ donationEvent?.description }}</p>
+        <agm-map [latitude]="46" [longitude]="19" [zoom]="7">
+          <agm-marker [latitude]="donationEvent?.latitude" [longitude]="donationEvent?.longitude"></agm-marker>
+        </agm-map>
+      </div>
+    </div>
+  </mat-card>
+</section>
