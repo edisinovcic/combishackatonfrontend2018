@@ -51,6 +51,10 @@ export class UserService {
   }
 
   getUserDonations(id: string) {
-    return this.http.get(`/api/v1/user-donation/user/${id}`, UserService.getHeadersWithAuth());
+    return this.http.get(`/api/v1/user-donation/user/${id})`, UserService.getHeadersWithAuth());
+  }
+
+  getUserAnswers(id: string) {
+    return this.http.get(`/api/v1/answers/user/${id}`, UserService.getHeadersWithAuth());
   }
 }

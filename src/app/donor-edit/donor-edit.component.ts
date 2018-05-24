@@ -18,6 +18,7 @@ export class DonorEditComponent implements OnInit {
 
   donor: User;
   donations: any[] = [];
+  answers: any[] = [];
 
   firstName: string;
   lastName: string;
@@ -67,6 +68,11 @@ export class DonorEditComponent implements OnInit {
             this.userService.getUserDonations(this.id)
               .subscribe(donations => {
                 this.donations = donations['data'];
+              });
+            this.userService.getUserAnswers(this.id)
+              .subscribe(answers => {
+                this.answers = answers['data'];
+                console.log(this.answers);
               });
           }
         }

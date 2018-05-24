@@ -1,132 +1,147 @@
 <section class="mat-typography">
-  <mat-card style="height: 93vh;">
-    <h1 class="mat-headline">Donor info</h1>
-    <mat-divider></mat-divider>
+  <mat-tab-group>
+    <mat-tab label="Donor info">
+      <mat-card style="height: 88vh;">
+        <div class="row" style="margin-top: 40px;">
+          <div class="col-md-6">
+            <form #addDonorForm="ngForm" (submit)="onSubmit(addDonorForm)">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>First name</mat-label>
+                <input
+                  matInput
+                  name="firstName"
+                  placeholder="First name"
+                  [(ngModel)]="firstName"
+                  required>
+              </mat-form-field>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Last name</mat-label>
+                <input
+                  matInput
+                  name="lastName"
+                  placeholder="Last name"
+                  [(ngModel)]="lastName"
+                  required>
+              </mat-form-field>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input
+                  matInput
+                  name="email"
+                  placeholder="Email"
+                  [(ngModel)]="email"
+                  required>
+              </mat-form-field>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Address</mat-label>
+                <input
+                  matInput
+                  name="address"
+                  placeholder="Address"
+                  [(ngModel)]="address"
+                  required>
+              </mat-form-field>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Phone number</mat-label>
+                <input
+                  matInput
+                  name="phoneNumber"
+                  placeholder="Phone number"
+                  [(ngModel)]="phoneNumber"
+                  required>
+              </mat-form-field>
+              <mat-form-field class="full-width" appearance="outline">
+                <input matInput [(ngModel)]="yearOfBirth" name="birthDate" [matDatepicker]="picker"
+                       placeholder="Birth date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="year" [startAt]="startDate" required></mat-datepicker>
+              </mat-form-field>
 
-    <div class="row" style="margin-top: 40px;">
-      <div class="col-md-6">
-        <form #addDonorForm="ngForm" (submit)="onSubmit(addDonorForm)">
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>First name</mat-label>
-            <input
-              matInput
-              name="firstName"
-              placeholder="First name"
-              [(ngModel)] = "firstName"
-              required>
-          </mat-form-field>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Last name</mat-label>
-            <input
-              matInput
-              name="lastName"
-              placeholder="Last name"
-              [(ngModel)] = "lastName"
-              required>
-          </mat-form-field>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Email</mat-label>
-            <input
-              matInput
-              name="email"
-              placeholder="Email"
-              [(ngModel)] = "email"
-              required>
-          </mat-form-field>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Address</mat-label>
-            <input
-              matInput
-              name="address"
-              placeholder="Address"
-              [(ngModel)] = "address"
-              required>
-          </mat-form-field>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Phone number</mat-label>
-            <input
-              matInput
-              name="phoneNumber"
-              placeholder="Phone number"
-              [(ngModel)] = "phoneNumber"
-              required>
-          </mat-form-field>
-          <mat-form-field class="full-width" appearance="outline">
-            <input matInput [(ngModel)]="yearOfBirth" name="birthDate" [matDatepicker]="picker" placeholder="Birth date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker startView="year" [startAt]="startDate" required></mat-datepicker>
-          </mat-form-field>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-select
+                  placeholder="Sex"
+                  [(ngModel)]="gender"
+                  name="gender"
+                  required>
+                  <mat-option value="M">Male</mat-option>
+                  <mat-option value="F">Female</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-select
+                  placeholder="Blood type"
+                  [(ngModel)]="bloodType"
+                  name="bloodType"
+                  required>
+                  <mat-option value="0-">0-</mat-option>
+                  <mat-option value="0+">0+</mat-option>
+                  <mat-option value="A-">A-</mat-option>
+                  <mat-option value="A+">A+</mat-option>
+                  <mat-option value="B-">B-</mat-option>
+                  <mat-option value="B+">B+</mat-option>
+                  <mat-option value="AB-">AB-</mat-option>
+                  <mat-option value="AB+">AB+</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <!--<mat-form-field class="full-width" appearance="outline">-->
+              <!--<mat-label>Password</mat-label>-->
+              <!--<input-->
+              <!--#password-->
+              <!--matInput-->
+              <!--name="password"-->
+              <!--placeholder="Password"-->
+              <!--[type]="hide ? 'password' : 'text'"-->
+              <!--[(ngModel)]-->
+              <!--required>-->
+              <!--<mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>-->
+              <!--</mat-form-field>-->
+              <!--<mat-form-field class="full-width" appearance="outline">-->
+              <!--<mat-label>Confirm password</mat-label>-->
+              <!--<input-->
+              <!--#confirmPassword-->
+              <!--matInput-->
+              <!--placeholder="Password"-->
+              <!--[type]="hide ? 'password' : 'text'"-->
+              <!--required>-->
+              <!--<mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>-->
+              <!--</mat-form-field>-->
+              <button
+                mat-raised-button
+                type="submit"
+                color="accent"
+                [disabled]="!addDonorForm.form.valid">
+                <!--[disabled]="!addDonorForm.form.valid || password.value !== confirmPassword.value">-->
+                <span *ngIf="!editMode">Register donor</span>
+                <span *ngIf="editMode">Update donor data</span>
+              </button>
+              <button type="button" mat-button (click)="addDonorForm.form.reset()">Reset</button>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <h2 class="mat-title" *ngIf="donations.length !== 0">User donations</h2>
 
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-select
-              placeholder="Sex"
-              [(ngModel)]="gender"
-              name="gender"
-              required>
-              <mat-option value="M">Male</mat-option>
-              <mat-option value="F">Female</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-select
-              placeholder="Blood type"
-              [(ngModel)]="bloodType"
-              name="bloodType"
-              required>
-              <mat-option value="0-">0-</mat-option>
-              <mat-option value="0+">0+</mat-option>
-              <mat-option value="A-">A-</mat-option>
-              <mat-option value="A+">A+</mat-option>
-              <mat-option value="B-">B-</mat-option>
-              <mat-option value="B+">B+</mat-option>
-              <mat-option value="AB-">AB-</mat-option>
-              <mat-option value="AB+">AB+</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <!--<mat-form-field class="full-width" appearance="outline">-->
-          <!--<mat-label>Password</mat-label>-->
-          <!--<input-->
-          <!--#password-->
-          <!--matInput-->
-          <!--name="password"-->
-          <!--placeholder="Password"-->
-          <!--[type]="hide ? 'password' : 'text'"-->
-          <!--[(ngModel)]-->
-          <!--required>-->
-          <!--<mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>-->
-          <!--</mat-form-field>-->
-          <!--<mat-form-field class="full-width" appearance="outline">-->
-          <!--<mat-label>Confirm password</mat-label>-->
-          <!--<input-->
-          <!--#confirmPassword-->
-          <!--matInput-->
-          <!--placeholder="Password"-->
-          <!--[type]="hide ? 'password' : 'text'"-->
-          <!--required>-->
-          <!--<mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>-->
-          <!--</mat-form-field>-->
-          <button
-            mat-raised-button
-            type="submit"
-            color="accent"
-            [disabled]="!addDonorForm.form.valid">
-            <!--[disabled]="!addDonorForm.form.valid || password.value !== confirmPassword.value">-->
-            <span *ngIf="!editMode">Register donor</span>
-            <span *ngIf="editMode">Update donor data</span>
-          </button>
-          <button type="button" mat-button (click)="addDonorForm.form.reset()">Reset</button>
-        </form>
-      </div>
-      <div class="col-md-6">
-        <h2 class="mat-title">User donations</h2>
-
+            <mat-card style="margin-bottom: 10px;" *ngFor="let q of donations">
+              <mat-card-header>
+                <mat-card-title><strong>{{ q.id }}</strong></mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                {{ q.description }}
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-card>
+    </mat-tab>
+    <mat-tab *ngIf="editMode" label="Quizzes info">
+      <mat-card>
         <mat-list>
-          <div *ngFor="let q of questions">
+          <div *ngFor="let a of answers">
             <mat-divider></mat-divider>
-            <mat-list-item> {{ q.description }} </mat-list-item>
+            <mat-list-item>Q: {{ a?.question?.description }}</mat-list-item>
+            <mat-list-item>A: {{ a.answer }}</mat-list-item>
           </div>
         </mat-list>
-      </div>
-    </div>
-  </mat-card>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
 </section>
