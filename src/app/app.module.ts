@@ -27,6 +27,9 @@ import { DonationEventService } from './services/donation-event.service';
 import { DonationEventViewComponent } from './donation-event-view/donation-event-view.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { QrcodeReaderComponent } from './qrcode-reader/qrcode-reader.component';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 export function initializeApp(appConfig: AppConfig) {
   return () => appConfig.load();
@@ -46,7 +49,8 @@ export function initializeApp(appConfig: AppConfig) {
     DonationEventEditComponent,
     DonationEventViewComponent,
     QuestionsComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    QrcodeReaderComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,8 @@ export function initializeApp(appConfig: AppConfig) {
     MaterialDesignModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCG99G7GvLoyjzOitwhqjfYTHYofNIPgrM'
-    })
+    }),
+    ZXingScannerModule.forRoot()
   ],
   providers: [
     AuthenticationService,

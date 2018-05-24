@@ -9,6 +9,7 @@ import { DonorEditComponent } from './donor-edit/donor-edit.component';
 import { DonationEventEditComponent } from './donation-event-edit/donation-event-edit.component';
 import { DonationEventViewComponent } from './donation-event-view/donation-event-view.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { QrcodeReaderComponent } from './qrcode-reader/qrcode-reader.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'blood-donations/new', component: DonationEventEditComponent },
   { path: 'blood-donations/:id', component: DonationEventViewComponent },
   { path: 'notifications', component: NotificationsComponent },
+  { path: 'qrcode-reader', component: QrcodeReaderComponent },
   { path: 'map', component: MapComponent },
   { path: '**', redirectTo: '' }
 ];
